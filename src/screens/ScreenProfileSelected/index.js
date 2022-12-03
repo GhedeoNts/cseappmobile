@@ -11,7 +11,7 @@ import StringAppFr from "../../../resources/strings/fr-FR";
 import DropDownPicker from 'react-native-dropdown-picker';
 import ButtonApp from "../../../components/general/ButtonApp";
 
-export default function ScreenSearchProfilesCandidates() {
+export default function ScreenProfileSelected() {
 
     const [open, setOpen] = useState(false);
     const [value, setValue] = useState(null);

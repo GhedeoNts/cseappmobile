@@ -1,6 +1,6 @@
 import { Text, View, TextInput } from "react-native";
 import React, { TextField } from "react";
-
+import styles from './StyleInputForm'
 const InputFormApp = ({
     StyleViewContainerInputForm,
     StyleInputForm,
@@ -10,7 +10,7 @@ const InputFormApp = ({
     NumberOfLines,
     ValueInputForm,
     OnchangeText,
-    SecureTextEntry = false
+    SecureTextEntry = false,
 }) => {
 
     return (
@@ -18,13 +18,14 @@ const InputFormApp = ({
         <View style={StyleViewContainerInputForm}>
             {LabelInput}
             <TextInput
-                style={StyleInputForm}
+                style={[styles.textInput, StyleInputForm]}
                 placeholder={PlaceholderForm}
                 multiline={MultiLine}
                 numberOfLines={NumberOfLines}
                 onChangeText={OnchangeText}
-                value={ValueInputForm}
                 secureTextEntry={SecureTextEntry}
+                onchangeText={OnchangeText}
+                value={ValueInputForm}
             />
         </View>
 

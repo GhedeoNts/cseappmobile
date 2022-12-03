@@ -8,13 +8,14 @@ import NavBarApp from "../../components/general/NavBarApp";
 import ChoiceProfileCreation from "../../components/general/ChoiceProfileCreation";
 import SubTitleScreen from "../../components/general/SubTitleScreen";
 import FooterBar from "../../components/general/FooterBar";
+import { LOGINUSER } from "../../constants/routeName";
 
-export default function ScreenRegister() {
+export default function ScreenRegister({ navigation }) {
 
     return (
         <ScrollView style={styles.body}>
 
-            <NavBarApp />
+            <NavBarApp Navigation={() => { navigation.navigate(LOGINUSER) }} />
 
             <HerosForApp imgSource={ImgForApp.heros.imgHeroScreen} />
 

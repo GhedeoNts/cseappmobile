@@ -1,5 +1,5 @@
 import { StyleSheet, StatusBar } from "react-native";
-import generalStylesApp from "../../../styles/generalStylesApp";
+import generalStylesApp from "../../styles/generalStylesApp";
 
 const styles = StyleSheet.create({
 

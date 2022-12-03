@@ -10,6 +10,7 @@ import ContentScreenMessage from "../../components/general/ContentScreenMessage"
 import LabelInputApp from "../../components/general/LabelInputApp";
 import InputFormApp from "../../components/general/InputFormApp";
 import ButtonApp from "../../components/general/ButtonApp";
+import { LOGINUSER } from "../../constants/routeName";
 
 export default function ScreenEditPassword() {
     return (

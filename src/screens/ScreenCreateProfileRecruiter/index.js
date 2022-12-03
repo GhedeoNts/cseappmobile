@@ -12,6 +12,7 @@ import FooterBar from "../../components/general/FooterBar";
 import FormCreateProfileRecruiter from "../../components/general/FormCreateProfileRecruiter";
 import MyAvailabilities from "../../components/general/MyAvailabilities";
 import ContentScreenMessage from "../../components/general/ContentScreenMessage";
+import { LOGINUSER } from "../../constants/routeName";
 
 export default function ScreenCreateProfileRecruiter() {
 

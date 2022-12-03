@@ -11,6 +11,7 @@ import LabelInputApp from "../../components/general/LabelInputApp";
 import InputFormApp from "../../components/general/InputFormApp";
 import ButtonApp from "../../components/general/ButtonApp";
 import FooterBar from "../../components/general/FooterBar";
+import { LOGINUSER } from "../../constants/routeName";
 
 export default function ScreenLoginForgetPassword({ navigation }) {
 
@@ -19,7 +20,7 @@ export default function ScreenLoginForgetPassword({ navigation }) {
         <>
             <SafeAreaView style={styles.container}>
                 <ScrollView style={styles.scrollView}>
-                    <NavBarApp />
+                    <NavBarApp Navigation={() => { navigation.navigate(LOGINUSER) }} />
                     <HerosForApp
                         imgSource={ImgForApp.heros.imgHeroScreenMsgMdp}
                     />

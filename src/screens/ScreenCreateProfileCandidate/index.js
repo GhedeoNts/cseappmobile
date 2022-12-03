@@ -11,6 +11,7 @@ import ContainerDegree from '../../components/general/ContainerDegree';
 import MyAvailabilities from "../../components/general/MyAvailabilities";
 import ButtonApp from "../../components/general/ButtonApp";
 import generalStylesApp from "../../styles/generalStylesApp";
+import { LOGINUSER } from "../../constants/routeName";
 
 export default function ScreenCreateProfileCandidate() {
 

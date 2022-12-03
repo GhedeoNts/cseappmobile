@@ -5,14 +5,15 @@ import HerosForApp from "../../../components/general/HerosForApp";
 import ImgForApp from "../../../utils/ImgApp";
 import StringAppFr from "../../../resources/strings/fr-FR";
 import ButtonApp from "../../../components/general/ButtonApp";
-import styles from "./StyleContactCandidates";
+import styles from "./StyleScreenContactCandidates";
 import ContentScreenMessage from "../../../components/general/ContentScreenMessage";
 import SubTitleScreen from "../../../components/general/SubTitleScreen";
 import InputFormApp from "../../../components/general/InputFormApp";
 import LabelInputApp from "../../../components/general/LabelInputApp";
 import SelectCandidateSendMessage from "../../../components/general/SelectCandidateSendMessage";
+import { LOGINUSER } from "../../constants/routeName";
 
-const ContactCandidates = () => {
+export default function ScreenContactCandidates() {
 
     return (
 
@@ -176,6 +177,3 @@ const ContactCandidates = () => {
     );
 
 };
-
-export default ContactCandidates;
-

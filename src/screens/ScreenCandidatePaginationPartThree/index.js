@@ -9,7 +9,7 @@ import SubTitleScreen from "../../components/general/SubTitleScreen";
 import MyAvailabilities from "../../components/general/MyAvailabilities";
 import FooterBar from "../../components/general/FooterBar";
 import PaginationApp from "../../components/general/PaginationApp";
-
+import { LOGINUSER } from "../../constants/routeName";
 
 export default function ScreenCandidatePaginationPartThree() {
 

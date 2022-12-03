@@ -5,12 +5,12 @@ import HerosForApp from "../../../components/general/HerosForApp";
 import ImgForApp from "../../../utils/ImgApp";
 import StringAppFr from "../../../resources/strings/fr-FR";
 import ButtonApp from "../../../components/general/ButtonApp";
-import styles from './StyleSeeProfileCandidate'
+import styles from './StyleScreenSeeProfileCandidate'
 import ContentScreenMessage from "../../../components/general/ContentScreenMessage";
 import SubTitleScreen from "../../../components/general/SubTitleScreen";
 
 
-const SeeProfileCandidate = () => {
+export default function ScreenSeeProfileCandidate() {
 
     return (
 
@@ -119,5 +119,3 @@ const SeeProfileCandidate = () => {
     );
 
 };
-
-export default SeeProfileCandidate;

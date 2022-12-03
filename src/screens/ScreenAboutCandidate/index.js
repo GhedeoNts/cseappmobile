@@ -7,6 +7,7 @@ import NavBarApp from "../../components/general/NavBarApp";
 import HerosForApp from "../../components/general/HerosForApp";
 import SubTitleScreen from "../../components/general/SubTitleScreen";
 import ContentScreenMessage from "../../components/general/ContentScreenMessage";
+import { LOGINUSER } from "../../constants/routeName";
 
 export default function ScreenAboutCandidate() {
 
@@ -22,13 +23,13 @@ export default function ScreenAboutCandidate() {
                 <SubTitleScreen
                     StyleViewSubTitle={styles.styleViewSubTitle}
                     StyleSubTitle={styles.styleSubTitle}
-                    ContentSubTitle={StringAppFr.screenAboutCandidate.subTitle}
+                    ContentSubTitle={StringAppFr.ScreenAboutCandidate.subTitle}
                 />
                 <View style={styles.StyleViewContainer}>
                     <ContentScreenMessage
                         StyleViewContentMessageScreen={styles.styleViewContentMessageScreen}
                         StyleContentMessageScreen={styles.styleContentMessageScreen}
-                        ContentMessageScreen={StringAppFr.screenAboutCandidate.about}
+                        ContentMessageScreen={StringAppFr.ScreenAboutCandidate.about}
                     />
                 </View>
 

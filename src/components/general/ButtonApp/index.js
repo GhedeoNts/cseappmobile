@@ -1,18 +1,18 @@
-import { TouchableHighlight, View, Text } from "react-native";
+import { TouchableOpacity, View, Text } from "react-native";
 import React from "react";
 
-const ButtonApp = ({ styleButton, styleTitle, titleButton, ActiveOpacity, UnderlayColor, OnPressButton }) => {
+const ButtonApp = ({ styleButton, styleTitle, titleButton, ActiveOpacity, UnderlayColor, OnPressButton, children }) => {
 
     return (
         <View>
-            <TouchableHighlight
+            <TouchableOpacity
                 style={styleButton}
                 activeOpacity={ActiveOpacity}
                 underlayColor={UnderlayColor}
                 onPress={OnPressButton}
             >
-                <Text style={styleTitle}>{titleButton}</Text>
-            </TouchableHighlight>
+                {children ? children : <Text style={styleTitle}>{titleButton}</Text>}
+            </TouchableOpacity>
         </View>
     );
 

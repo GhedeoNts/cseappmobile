@@ -1,7 +1,6 @@
 import { StyleSheet, Text, View, StatusBar } from "react-native";
 import generalStylesApp from "../../../styles/generalStylesApp";
 
-
 const styles = StyleSheet.create({
 
     container: {
@@ -55,6 +54,7 @@ const styles = StyleSheet.create({
     },
 
     styleInputForm: {
+
         opacity: 70,
         width: 145,
         height: 34,
@@ -187,6 +187,33 @@ const styles = StyleSheet.create({
         fontStyle: "normal",
         lineHeight: 21,
     },
+
+    styleChoiceProfile: {
+        color: '#003147',
+        opacity: 70,
+        fontSize: 14,
+        fontWeight: 400
+    },
+
+    styleInputChoiceProfile: {
+        width: 248,
+        height: 38,
+        borderColor: '#003147',
+        opacity: 70,
+        borderRadius: 9,
+        borderWidth: 1
+    },
+
+    styleContainerChoiceProfile: {
+        justifyContent: "center",
+        width: 248,
+        height: 38,
+        borderRadius: 9,
+        borderWidth: 0.5,
+        borderColor: '#ABB5BE',
+        opacity: 70,
+    },
+
 });
 
 export default styles

@@ -2,7 +2,7 @@ import { View, Image } from "react-native";
 import styles from "./stylesNavBar";
 import React from "react";
 import ImgForApp from "../../../utils/ImgApp";
-import ButtonApp from '../ButtonApp'
+import TouchableButton from "../TouchableButton";
 
 const NavBarApp = ({ ImgSourceIcon, Navigation }) => {
 
@@ -11,12 +11,12 @@ const NavBarApp = ({ ImgSourceIcon, Navigation }) => {
         <View style={styles.viewNavBar}>
 
             <View style={styles.containerIconCAB}>
-                <ButtonApp OnPressButton={Navigation}>
+                <TouchableButton OnPressButton={Navigation}>
                     <Image
                         source={ImgForApp.iconNavBar.imgIconCAB}
                         style={styles.imgIconCAB}
                     />
-                </ButtonApp>
+                </TouchableButton>
             </View>
 
             <View style={styles.containerIcon}>

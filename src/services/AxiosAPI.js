@@ -4,7 +4,7 @@ import {
     requestInterceptor,
     responseErrorHandler,
     responseInterceptor
-} from './AxiosHelperMethods';
+} from '../helpers/axiosHelperMethods';
 
 // const baseURL = 'https://jsonplaceholder.typicode.com';
 const baseURL = 'https://appeclateeback.onrender.com/api';

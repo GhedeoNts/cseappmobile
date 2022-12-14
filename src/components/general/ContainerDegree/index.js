@@ -1,4 +1,4 @@
-import { Text, View, Button } from "react-native";
+import { Text, View, Button, Platform } from "react-native";
 import React, { useState } from "react";
 import styles from "./StylesContainerDegree";
 import Checkbox from 'expo-checkbox';
@@ -9,6 +9,7 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import ButtonApp from "../ButtonApp";
 import generalStylesApp from "../../../styles/generalStylesApp";
 import InputFormApp from '../../general/InputFormApp'
+import TouchableButton from "../TouchableButton";
 
 
 const ContainerDegree = () => {
@@ -23,21 +24,30 @@ const ContainerDegree = () => {
     ]
 
     // DatePicker
-    const [date, setDate] = useState(new Date(1598051730000));
+    // const [date, setDate] = useState(new Date(1598051730000));
+    const [date, setDate] = useState(new Date);
     const [mode, setMode] = useState('date');
     const [show, setShow] = useState(false);
+    const [text, setText] = useState('JJ/MM/AAAA');
 
     const onChange = (event, selectedDate) => {
-        const currentDate = selectedDate;
-        setShow(false);
+        const currentDate = selectedDate || date;
+        setShow(Platform.OS === 'ios');
         setDate(currentDate);
+
+        let tempDate = new Date(currentDate);
+        let fDate = tempDate.getDate() + '/' + (tempDate.getMonth() + 1) + '/' + tempDate.getFullYear();
+        let fTime = 'Hours: ' + tempDate.getHours() + ' Minutes: ' + tempDate.getMinutes();
+        setText(fDate);
+
     };
 
     const showMode = (currentMode) => {
-        if (Platform.OS === 'android') {
-            setShow(true);
-            // for iOS, add a button that closes the picker
-        }
+        // if (Platform.OS === 'android') {
+        //     setShow(true);
+        //     // for iOS, add a button that closes the picker
+        // }
+        setShow(true);
         setMode(currentMode);
     };
 
@@ -90,8 +100,13 @@ const ContainerDegree = () => {
                 </View>
 
                 <View style={styles.stylesViewContainerStatusDegree}>
-                    <Button onPress={showDatepicker} title="JJ/MM/AAAA" />
-                    {/* <Text>selected: {date.toLocaleString()}</Text> */}
+                    <TouchableButton
+                        styleTitle={{
+                            color: '#000',
+                            fontWeight: '400',
+                        }}
+                        OnPressButton={() => { showMode('date') }}
+                        titleButton={text ? text : "JJ/MM/AAAA"} />
                     {show && (
                         <DateTimePicker
                             testID="dateTimePicker"
@@ -101,7 +116,6 @@ const ContainerDegree = () => {
                             onChange={onChange}
                         />
                     )}
-
                 </View>
 
             </View>
@@ -140,8 +154,13 @@ const ContainerDegree = () => {
                 </View>
 
                 <View style={styles.stylesViewContainerStatusDegree}>
-                    <Button onPress={showDatepicker} title="JJ/MM/AAAA" />
-                    {/* <Text>selected: {date.toLocaleString()}</Text> */}
+                    <TouchableButton
+                        styleTitle={{
+                            color: '#000',
+                            fontWeight: '400',
+                        }}
+                        OnPressButton={() => { showMode('date') }}
+                        titleButton={text ? text : "JJ/MM/AAAA"} />
                     {show && (
                         <DateTimePicker
                             testID="dateTimePicker"
@@ -151,7 +170,6 @@ const ContainerDegree = () => {
                             onChange={onChange}
                         />
                     )}
-
                 </View>
 
             </View>
@@ -190,8 +208,13 @@ const ContainerDegree = () => {
                 </View>
 
                 <View style={styles.stylesViewContainerStatusDegree}>
-                    <Button onPress={showDatepicker} title="JJ/MM/AAAA" />
-                    {/* <Text>selected: {date.toLocaleString()}</Text> */}
+                    <TouchableButton
+                        styleTitle={{
+                            color: '#000',
+                            fontWeight: '400',
+                        }}
+                        OnPressButton={() => { showMode('date') }}
+                        titleButton={text ? text : "JJ/MM/AAAA"} />
                     {show && (
                         <DateTimePicker
                             testID="dateTimePicker"
@@ -201,7 +224,6 @@ const ContainerDegree = () => {
                             onChange={onChange}
                         />
                     )}
-
                 </View>
 
             </View>
@@ -223,8 +245,13 @@ const ContainerDegree = () => {
                 </View>
 
                 <View style={styles.stylesViewContainerStatusDegree}>
-                    <Button onPress={showDatepicker} title="JJ/MM/AAAA" />
-                    {/* <Text>selected: {date.toLocaleString()}</Text> */}
+                    <TouchableButton
+                        styleTitle={{
+                            color: '#000',
+                            fontWeight: '400',
+                        }}
+                        OnPressButton={() => { showMode('date') }}
+                        titleButton={text ? text : "JJ/MM/AAAA"} />
                     {show && (
                         <DateTimePicker
                             testID="dateTimePicker"
@@ -234,7 +261,6 @@ const ContainerDegree = () => {
                             onChange={onChange}
                         />
                     )}
-
                 </View>
 
             </View>

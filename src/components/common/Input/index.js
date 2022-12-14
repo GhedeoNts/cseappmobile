@@ -55,6 +55,7 @@ const Input = ({
                     { alignItems: icon ? 'center' : 'baseline' },
                     { borderColor: getBorderColor(), flexDirection: getFlexDirection() }
                 ]}>
+
                 <View>{icon && icon}</View>
 
                 <TextInput
@@ -70,6 +71,7 @@ const Input = ({
                     {...props}
                 />
             </View>
+
             {error && <Text style={styles.error}>{error}</Text>}
 
         </View>

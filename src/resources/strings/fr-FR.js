@@ -17,7 +17,7 @@ const StringAppFr = {
     },
 
     error: {
-        fildmessage: 'Ce champ est obligatoire'
+        fieldMessage: 'Ce champ est obligatoire'
     },
 
     screenLoginCandidateOrRegister: {

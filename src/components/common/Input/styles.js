@@ -7,7 +7,8 @@ export default StyleSheet.create({
         borderWidth: 1,
         borderRadius: 4,
         paddingHorizontal: 5,
-
+        paddingHorizontal: 5,
+        alignItems: 'center',
         marginTop: 5,
     },
 
@@ -17,7 +18,6 @@ export default StyleSheet.create({
 
     textInput: {
         flex: 1,
-        width: '100%',
     },
 
     error: {

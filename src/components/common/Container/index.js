@@ -3,13 +3,12 @@ import React from "react";
 import { ScrollView } from "react-native-gesture-handler";
 import styles from "./styles";
 
-const { wrapper, scrollView } = styles;
 
-export default function container({ children }) {
+export default function Container({ style, children }) {
 
     return (
-        <SafeAreaView style={wrapper}>
-            <ScrollView style={scrollView}>
+        <SafeAreaView style={[styles.wrapper, style]}>
+            <ScrollView style={styles.scrollView}>
                 {children}
             </ScrollView>
         </SafeAreaView>

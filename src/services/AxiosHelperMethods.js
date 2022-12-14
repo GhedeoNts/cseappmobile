@@ -1,9 +1,15 @@
-export const requestInterceptor = config => {
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import axiosInstance from "../helpers/axiosInterceptor";
 
-    let accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwibmFtZSI6InJlbXlAYy5mciIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTY2OTc1NTI0NSwiZXhwIjoxNjY5NzU4ODQ1fQ.Hx09bJ3gq4gfmMxWFTKJvGW92Aj4Hoc-qWJRDnARzYc';
+export const requestInterceptor = (config) => {
 
-    if (accessToken != null) {
-        config.headers['x-auth'] = `Bearer ${accessToken}`;
+    // if (accessToken != null) {
+    //     config.headers['x-auth'] = `Bearer ${accessToken}`;
+    // }
+
+    const token = AsyncStorage.getItem('token');
+    if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
     }
 
     console.log('Headers: ', config.headers);
@@ -33,7 +39,7 @@ export const responseInterceptor = config => {
 }
 
 // function refreshTokenAPICall() {
-//     return new instance of axios.post().then;
+//     return axiosInstance.post().then;
 // }
 
 export const responseErrorHandler = error => {

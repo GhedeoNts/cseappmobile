@@ -1,8 +1,30 @@
-import { StyleSheet } from "react-native";
-import generalStylesApp from "../../styles/generalStylesApp";
+import { StyleSheet, StatusBar } from 'react-native'
+import colors from '../../../assets/theme/colors';
+import generalStylesApp from '../../../styles/generalStylesApp';
 
 const styles = StyleSheet.create({
-
+    body: {
+        flex: 1,
+        backgroundColor: '#fff',
+        paddingTop: StatusBar.currentHeight,
+    },
+    StyleScrollView: {
+        marginHorizontal: 0.1,
+    },
+    imgIconCAB: {
+        width: 38,
+        height: 38,
+    },
+    imgIcon: {
+        width: 38,
+        height: 38,
+    },
+    containerIcon: {
+        flex: 1,
+        flexDirection: "row",
+        alignSelf: 'center',
+        justifyContent: "flex-end"
+    },
     containerform: {
         flex: 1,
         flexDirection: 'column',
@@ -14,6 +36,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "center",
         marginTop: 30,
+        marginBottom: 50,
     },
 
     subTitleStyle: {
@@ -24,45 +47,38 @@ const styles = StyleSheet.create({
     },
 
     viewContainerInputMail: {
-        marginTop: 70,
+        width: 270,
+        height: 42,
+        marginTop: 5,
 
     },
 
     viewContainerInputPassword: {
-        marginTop: 35,
+        width: 270,
+        height: 42,
+        marginTop: 5,
 
     },
 
     styleinputLabel: {
-        marginBottom: 14,
+        marginBottom: 5,
         color: generalStylesApp.ColorFromApp.PRIMARY_COLOR,
         opacity: 70,
-
     },
 
     styleInputMail: {
-        width: 270,
-        height: 38,
-        borderWidth: 1,
-        borderColor: '#B7B2CA',
-        borderRadius: 4,
-        textAlign: "center",
+        // textAlign: 'center',
         fontSize: 16,
-        color: generalStylesApp.ColorFromApp.PRIMARY_COLOR,
+        color: colors.primary,
         opacity: 85,
         fontWeight: "700",
         fontStyle: "normal",
     },
 
     styleInputPassword: {
-        width: 270,
-        height: 38,
-        borderWidth: 1,
-        borderColor: '#B7B2CA',
-        borderRadius: 4,
-        textAlign: "center",
+        paddingLeft: 5,
         fontSize: 16,
-        color: generalStylesApp.ColorFromApp.PRIMARY_COLOR,
+        color: colors.primary,
         opacity: 85,
         fontWeight: "700",
         fontStyle: "normal",
@@ -72,7 +88,7 @@ const styles = StyleSheet.create({
         width: 125,
         height: 15,
         marginLeft: 206,
-        marginTop: 38,
+        marginTop: 2,
         marginBottom: 31,
         marginRight: 38,
     },
@@ -84,11 +100,11 @@ const styles = StyleSheet.create({
     },
 
     viewContainerButtonConnexion: {
-        marginTop: 18,
+        marginTop: 10,
     },
 
     styleButtonConnexion: {
-        backgroundColor: generalStylesApp.ColorButton.ButtonConnexion,
+        // backgroundColor: generalStylesApp.ColorButton.ButtonConnexion,
         width: 110,
         height: 55,
         borderRadius: 9,
@@ -110,7 +126,6 @@ const styles = StyleSheet.create({
     },
 
     styleButtonRegister: {
-
         backgroundColor: generalStylesApp.ColorButton.ButtonRegister
     },
 
@@ -120,6 +135,7 @@ const styles = StyleSheet.create({
         fontWeight: '700',
         color: generalStylesApp.ColorButton.titleButtonRegister
     }
+
 });
 
 export default styles

@@ -1,10 +1,10 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import ScreenProfileCandidate from '../screens/ScreenProfileCandidate';
-import ScreenCandidatePaginationPartOne from '../screens/ScreenCandidatePaginationPartOne';
-import ScreenCandidatePaginationPartTwo from '../screens/ScreenCandidatePaginationPartTwo';
-import ScreenCandidatePaginationPartThree from '../screens/ScreenCandidatePaginationPartThree';
-import ScreenAboutCandidate from '../screens/ScreenAboutCandidate';
+import ProfileCandidate from '../screens/ProfileCandidate';
+import CandidatePaginationPartOne from '../screens/CandidatePaginationPartOne';
+import CandidatePaginationPartTwo from '../screens/CandidatePaginationPartTwo';
+import CandidatePaginationPartThree from '../screens/CandidatePaginationPartThree';
+import AboutCandidate from '../screens/AboutCandidate';
 import { PROFILECANDIDATE, CANDIDATEPAGINATIONONE, CANDIDATEPAGINATIONTWO, CANDIDATEPAGINATIONTHREE, ABOUTUSER } from "../constants/routeName";
 
 export default function HomeNavigator() {
@@ -14,11 +14,11 @@ export default function HomeNavigator() {
     return (
 
         <HomeStack.Navigator initialRouteName={PROFILECANDIDATE}>
-            <HomeStack.Screen name={PROFILECANDIDATE} component={ScreenProfileCandidate} />
-            <HomeStack.Screen name={CANDIDATEPAGINATIONONE} component={ScreenCandidatePaginationPartOne} />
-            <HomeStack.Screen name={CANDIDATEPAGINATIONTWO} component={ScreenCandidatePaginationPartTwo} />
-            <HomeStack.Screen name={CANDIDATEPAGINATIONTHREE} component={ScreenCandidatePaginationPartThree} />
-            <HomeStack.Screen name={ABOUTUSER} component={ScreenAboutCandidate} />
+            <HomeStack.Screen name={PROFILECANDIDATE} component={ProfileCandidate} />
+            <HomeStack.Screen name={CANDIDATEPAGINATIONONE} component={CandidatePaginationPartOne} />
+            <HomeStack.Screen name={CANDIDATEPAGINATIONTWO} component={CandidatePaginationPartTwo} />
+            <HomeStack.Screen name={CANDIDATEPAGINATIONTHREE} component={CandidatePaginationPartThree} />
+            <HomeStack.Screen name={ABOUTUSER} component={AboutCandidate} />
         </HomeStack.Navigator>
 
     );

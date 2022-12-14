@@ -5,61 +5,47 @@ import InputFormApp from "../InputFormApp";
 import LabelInputApp from "../LabelInputApp";
 import styles from "./StyleFormCreateProfileCandidate";
 import SubTitleScreen from "../SubTitleScreen";
-import { SelectList } from 'react-native-dropdown-select-list'
+// import { SelectList } from 'react-native-dropdown-select-list'
 import Checkbox from "expo-checkbox";
 import generalStylesApp from "../../../styles/generalStylesApp";
 import ButtonApp from "../ButtonApp";
-import DropDownPicker from 'react-native-dropdown-picker';
+// import DropDownPicker from 'react-native-dropdown-picker';
+import { Picker } from "@react-native-picker/picker";
 
 const FormCreateProfileCandidate = () => {
 
     // CheckBox
     const [isChecked, setChecked] = useState(false);
 
-    const [enabledSearch, setEnabledSearch] = useState(false);
-    const [selected, setSelected] = useState("");
-    const data = [
-        { key: '1', value: StringAppFr.screenCreateYourProfileCandidate.formLabelText.jobSought.Animateur },
-        { key: '2', value: StringAppFr.screenCreateYourProfileCandidate.formLabelText.jobSought.Directeur },
-    ]
-
-    const [open, setOpen] = useState(false);
-    const [value, setValue] = useState(null);
-    const [items, setItems] = useState([
-        { label: 'Animateur', value: StringAppFr.screenCreateYourProfileCandidate.formLabelText.jobSought.Animateur },
-        { label: 'Directeur', value: StringAppFr.screenCreateYourProfileCandidate.formLabelText.jobSought.Directeur }
-    ]);
-
+    // Choice profile
+    const [choiceProfile, setChoiceProfile] = useState(StringAppFr.screenCreateYourProfileCandidate.formLabelText.jobSought.Animateur);
+    const [choiceProfileIndex, setChoiceProfileIndex] = useState(1);
 
 
     return (
 
         <View style={styles.formCreateCandidate}>
 
-            <View>
-                {/* <SelectList
-                    setSelected={(val) => setSelected(val)}
-                    data={data}
-                    save="value"
-                    search={enabledSearch}
-                    placeholder={StringAppFr.screenCreateYourProfileCandidate.formLabelText.jobSought.placeholder}
-                    // maxHeight={200}
-                    boxStyles={{
-                        width: 300, height: 50, justifyContent: "center",
-                        alignItems: 'center',
+            <View style={styles.styleContainerChoiceProfile}>
+                <Picker
+                    selectedValue={choiceProfile}
+                    onValueChange={(itemValue, itemIndex) => {
+                        setChoiceProfile(itemValue)
+                        setChoiceProfileIndex(itemIndex)
                     }}
-                    inputStyles={{ fontSize: 14, margin: 2 }}
-                    dropdownTextStyles={{ fontSize: 14, margin: 2 }}
-                /> */}
-                <DropDownPicker
-                    style={styles.styleButtonFilter}
-                    open={open}
-                    value={value}
-                    items={items}
-                    setOpen={setOpen}
-                    setValue={setValue}
-                    setItems={setItems}
-                />
+                    mode="dropdown"
+                    itemStyle={styles.styleChoiceProfile}
+                    style={styles.styleInputChoiceProfile}
+                >
+                    <Picker.Item
+                        label={StringAppFr.screenCreateYourProfileCandidate.formLabelText.jobSought.Animateur}
+                        value={StringAppFr.screenCreateYourProfileCandidate.formLabelText.jobSought.Animateur}
+                    />
+                    <Picker.Item
+                        label={StringAppFr.screenCreateYourProfileCandidate.formLabelText.jobSought.Directeur}
+                        value={StringAppFr.screenCreateYourProfileCandidate.formLabelText.jobSought.Directeur}
+                    />
+                </Picker>
             </View>
 
             <View style={styles.styleContainerInput}>

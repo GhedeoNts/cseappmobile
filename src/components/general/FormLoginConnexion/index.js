@@ -1,102 +1,112 @@
-import { Text, View, TextInput, Alert } from "react-native";
-import React, { useContext } from "react";
-import styles from "./StylesFormConnexion";
+import { View, Text } from "react-native";
+import React, { useState } from "react";
+import NavBarApp from "../NavBarApp";
+import HerosForApp from "../HerosForApp";
 import StringAppFr from "../../../resources/strings/fr-FR";
-import ButtonApp from "../ButtonApp";
-import generalStylesApp from "../../../styles/generalStylesApp";
+import ImgForApp from "../../../utils/ImgApp";
+import styles from "./StylesFormConnexion";
+import FooterBar from "../FooterBar";
 import LabelInputApp from "../LabelInputApp";
 import InputFormApp from "../InputFormApp";
+import ButtonApp from "../ButtonApp";
+import generalStylesApp from "../../../styles/generalStylesApp";
+import ScreenLoginForgetPassword from "../../../screens/LoginForgetPassword";
+import ScreenRegister from "../../../screens/Register";
+import Container from "../../common/Container";
+import TouchableButton from "../TouchableButton";
+import { useNavigation } from "@react-navigation/native";
 
-const {
-    containerform,
-    viewSubTitleStyle,
-    subTitleStyle,
-    viewContainerInputMail,
-    styleinputLabel,
-    styleInputMail,
-    viewContainerInputPassword,
-    styleInputPassword,
-    viewContainerTitleForgetPassword,
-    styletitleForgotPassword,
-    viewContainerButtonConnexion,
-    styleButtonConnexion,
-    styleTitleButtonConnexion,
-    viewContainerButtonRegister,
-    styleButtonRegister,
-    styleTitleButtonRegister,
-} = styles;
 
-const FormLoginConnexion = ({ ValueUsername, ValuePassword, SetValueUsername, SetValuePassword, placeholderForm, MyNavigation, SignInMethod, SignUpMethod }) => {
+// APi Client 
+import axios from "axios";
 
-    const messageTest = () => Alert.alert('Test MSG', 'Application is running');
+
+const FormLoginConnexion = () => {
+
+    const { navigate } = useNavigation();
+
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [value, onChangeText] = useState(null)
 
     return (
 
-        <View style={containerform}>
+        <Container>
+            <NavBarApp />
+            <HerosForApp imgSource={ImgForApp.heros.imgHeroScreen} />
+            <View style={styles.containerform}>
 
-            <View style={viewSubTitleStyle}>
-                <Text style={subTitleStyle}>{StringAppFr.screenLoginCandidateOrRegister.subTitle}</Text>
-            </View>
+                <View style={styles.viewSubTitleStyle}>
+                    <Text style={styles.subTitleStyle}>{StringAppFr.screenLoginCandidateOrRegister.subTitle}</Text>
+                </View>
 
-            <InputFormApp
-                StyleViewContainerInputForm={viewContainerInputMail}
-                LabelInput={<LabelInputApp
-                    StyleInputLabel={styleinputLabel}
-                    ContentLabel={StringAppFr.screenLoginCandidateOrRegister.formLabelText.mailAddress}
-                />}
-                StyleInputForm={styleInputMail}
-                PlaceholderForm={placeholderForm.mailAddress}
-                ValueInputForm={ValueUsername}
-                OnchangeText={SetValueUsername}
-            />
+                <InputFormApp
+                    StyleViewContainerInputForm={styles.viewContainerInputMail}
+                    LabelInput={<LabelInputApp
+                        StyleInputLabel={styles.styleinputLabel}
+                        ContentLabel={StringAppFr.screenLoginCandidateOrRegister.formLabelText.mailAddress}
+                    />}
 
-
-            <InputFormApp
-                StyleViewContainerInputForm={viewContainerInputPassword}
-                LabelInput={<LabelInputApp
-                    StyleInputLabel={styleinputLabel}
-                    ContentLabel={StringAppFr.screenLoginCandidateOrRegister.formLabelText.passWords}
-                />}
-                StyleInputForm={styleInputPassword}
-                PlaceholderForm={placeholderForm.passWords}
-                ValueInputForm={ValuePassword}
-                OnchangeText={SetValuePassword}
-                SecureTextEntry={true}
-            />
-
-            <View style={viewContainerTitleForgetPassword}>
-                <ButtonApp
-                    styleTitle={styletitleForgotPassword}
-                    titleButton={StringAppFr.screenLoginCandidateOrRegister.titleForgotPassword}
-                    ActiveOpacity={0.6}
-                    UnderlayColor={generalStylesApp.ColorFromApp.SECOND_COLOR}
-                    OnPressButton={messageTest}
+                    StyleInput={styles.styleInputMail}
+                    PlaceholderForm={StringAppFr.screenLoginCandidateOrRegister.formLabelText.placeholderInput.mailAddress}
+                    Value={value}
+                    OnchangeText={(text) => onChangeText(text)}
+                // error={StringAppFr.error.fieldMessage}
                 />
-            </View>
 
-            <View style={viewContainerButtonConnexion}>
-                <ButtonApp
-                    styleButton={styleButtonConnexion}
-                    styleTitle={styleTitleButtonConnexion}
-                    titleButton={StringAppFr.screenLoginCandidateOrRegister.buttonTitleConnexion}
-                    ActiveOpacity={0.6}
-                    UnderlayColor={generalStylesApp.ColorButton.ButtonConnexion}
-                    OnPressButton={SignInMethod}
+                <InputFormApp
+                    StyleViewContainerInputForm={styles.viewContainerInputPassword}
+                    LabelInput={<LabelInputApp
+                        StyleInputLabel={styles.styleinputLabel}
+                        ContentLabel={StringAppFr.screenLoginCandidateOrRegister.formLabelText.passWords}
+                    />}
+
+                    StyleInput={styles.styleInputPassword}
+                    PlaceholderForm={StringAppFr.screenLoginCandidateOrRegister.formLabelText.placeholderInput.passWords}
+                    Value={value}
+                    OnchangeText={(text) => onChangeText(text)}
+                    SecureTextEntry={true}
+                    iconPosition={'right'}
+                    icon={<Text>Cacher</Text>}
+                // error={StringAppFr.error.fieldMessage}
                 />
-            </View>
 
-            <View style={viewContainerButtonRegister}>
-                <ButtonApp
-                    styleButton={styleButtonRegister}
-                    styleTitle={styleTitleButtonRegister}
-                    titleButton={StringAppFr.screenLoginCandidateOrRegister.buttonTitleRegister}
-                    ActiveOpacity={0.6}
-                    UnderlayColor={generalStylesApp.ColorButton.ButtonRegister}
-                    OnPressButton={messageTest}
-                />
-            </View>
+                <View style={styles.viewContainerTitleForgetPassword}>
+                    <TouchableButton
+                        styleTitle={styles.styletitleForgotPassword}
+                        titleButton={StringAppFr.screenLoginCandidateOrRegister.titleForgotPassword}
+                        ActiveOpacity={0.6}
+                        UnderlayColor={generalStylesApp.ColorFromApp.SECOND_COLOR}
+                        OnPressButton={() => navigate(ScreenLoginForgetPassword)}
+                    />
+                </View>
 
-        </View>
+                <View style={styles.viewContainerButtonConnexion}>
+                    <ButtonApp
+                        styleButton={styles.styleButtonConnexion}
+                        styleTitle={styles.styleTitleButtonConnexion}
+                        titleButton={StringAppFr.screenLoginCandidateOrRegister.buttonTitleConnexion}
+                        ActiveOpacity={0.6}
+                        UnderlayColor={generalStylesApp.ColorButton.ButtonConnexion}
+                        primary
+                    // Disabled={true}
+                    />
+                </View>
+
+                <View style={styles.viewContainerButtonRegister}>
+                    <TouchableButton
+                        styleButton={styles.styleButtonRegister}
+                        styleTitle={styles.styleTitleButtonRegister}
+                        titleButton={StringAppFr.screenLoginCandidateOrRegister.buttonTitleRegister}
+                        ActiveOpacity={0.6}
+                        UnderlayColor={generalStylesApp.ColorButton.ButtonRegister}
+                        OnPressButton={() => navigate(ScreenRegister)}
+                    />
+                </View>
+
+            </View>
+            <FooterBar />
+        </Container>
     );
 };
 
